@@ -1,0 +1,37 @@
+-Tokens are in JWT format.
+
+-Seems to not quite properly handle timezones when uploading files from a Mac:
+
+File uploaded through the Mac app on OSX Sierra, in US Eastern time, which is currently UTC-5, at approximately 1713 UTC:
+{
+    "BlobURLGet": "",
+    "BlobURLGetExpires": "0001-01-01T00:00:00Z",
+    "Bookmarked": false,
+    "CurrentPage": 0,
+    "ID": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "Message": "",
+    "ModifiedClient": "2018-02-23T12:13:21.457457Z",
+    "Parent": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "Success": true,
+    "Type": "DocumentType",
+    "Version": 2,
+    "VissibleName": "LockhartsLament"
+}
+Note how the ModifiedClient time is the local time, but is marked as UTC (the Z at the end).
+
+File created on the ReMarkable tablet directly, at approximately 1756 UTC:
+{
+    "BlobURLGet": "",
+    "BlobURLGetExpires": "0001-01-01T00:00:00Z",
+    "Bookmarked": false,
+    "CurrentPage": 0,
+    "ID": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "Message": "",
+    "ModifiedClient": "2018-02-23T17:56:13.75075Z",
+    "Parent": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "Success": true,
+    "Type": "DocumentType",
+    "Version": 5,
+    "VissibleName": "Journal"
+}
+Note how the ModifiedClient time is showing the correct UTC time.
